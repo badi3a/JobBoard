@@ -2,6 +2,7 @@
 services:
   eureka:
     build: ./eureka
+    image:  amenizoubeir/backend-eureka:latest
     container_name: eureka-server
     ports:
       - "8761:8761"
@@ -10,6 +11,7 @@ services:
 
   gateway:
     build: ./gateway
+    image:  amenizoubeir/backend-gateway:latest
     container_name: gateway-service
     ports:
       - "8065:8065"
@@ -22,6 +24,7 @@ services:
 
   candidat-service:
     build: ./microservices/candidat
+    image:  amenizoubeir/backend-candidat-service:latest
     container_name: candidat-service
     ports:
       - "8020:8020"
@@ -32,6 +35,35 @@ services:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka/
     networks:
       - microservices-network
+
+  job-service:
+    build: ./microservices/job
+    image: amenizoubeir/backend-job-service:latest
+    container_name: job-service
+    ports:
+      - "8050:8050"
+    depends_on:
+      - eureka
+      - gateway
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka/
+    networks:
+      - microservices-network
+
+  notification-service:
+    build: ./microservices/notification
+    image: amenizoubeir/backend-notification-service:latest
+    container_name: notification-service
+    ports:
+      - "8030:8030"
+    depends_on:
+      - eureka
+      - gateway
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka/
+    networks:
+      - microservices-network
+
 
 networks:
   microservices-network:

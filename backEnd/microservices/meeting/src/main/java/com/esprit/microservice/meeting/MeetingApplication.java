@@ -1,17 +1,15 @@
-package esprit.notification;
+package com.esprit.microservice.meeting;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-
 @SpringBootApplication
 @EnableDiscoveryClient
-public class NotificationApplication {
+public class MeetingApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(NotificationApplication.class, args);
+        SpringApplication.run(MeetingApplication.class, args);
     }
-
 
 }

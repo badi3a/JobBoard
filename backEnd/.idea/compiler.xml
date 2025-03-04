@@ -8,13 +8,18 @@
         <outputRelativeToContentRoot value="true" />
         <module name="notification" />
         <module name="candidat" />
+        <module name="Job" />
         <module name="eureka" />
         <module name="gateway" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="job" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Job" options="-parameters" />
       <module name="candidat" options="-parameters" />
       <module name="eureka" options="-parameters" />
       <module name="gateway" options="-parameters" />

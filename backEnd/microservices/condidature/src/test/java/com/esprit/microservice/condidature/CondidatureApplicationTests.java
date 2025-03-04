@@ -1,10 +1,10 @@
-package esprit.meeting;
+package com.esprit.microservice.condidature;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MeetingApplicationTests {
+class CondidatureApplicationTests {
 
 	@Test
 	void contextLoads() {
